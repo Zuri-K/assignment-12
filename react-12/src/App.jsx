@@ -8,19 +8,20 @@ function App() {
   const [error, setError] = useState(null);
 
   const handleSubmit = async(event) =>{
-    setError(null)
-    setFact("")
+
     event.preventDefault();
 
       try{
         const response = await
         axios.get('https://catfact.ninja/fact')
         setFact(response.data.fact)
+        setError()        
         
       }catch(error){
         setError("Error")
-
+        setFact()
       }
+
     
 
   };
